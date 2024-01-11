@@ -1,0 +1,63 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.open-modal-button {
+  justify-content: center;
+}
+
+ion-header {
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+}
+
+ion-content {
+  --ion-background-color: #1f1f1f;
+  --ion-text-color: #ffffff;
+}
+
+ion-button {
+  --ion-background-color: #2e2e2e;
+  --ion-text-color: #ffffff;
+}
+
+ion-item {
+  --ion-background-color: #2e2e2e;
+  --ion-text-color: #ffffff;
+}
+
+ion-thumbnail img {
+  border-radius: 8px; /* Optional: Add a border radius to the game thumbnails */
+}
+
+ion-label h2 {
+  font-size: 1.2em;
+}
+
+ion-label p {
+  font-size: 1em;
+}

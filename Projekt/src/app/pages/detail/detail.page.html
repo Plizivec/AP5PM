@@ -1,0 +1,114 @@
+<!-- detail.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ gameDetail?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ gameDetail?.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-text-center ion-margin">
+    <h1 class="ion-text-uppercase ion-margin-bottom">{{ gameDetail?.name }}</h1>
+    <div class="custom-image" [style.backgroundImage]="'url(' + gameDetail.background_image + ')'">
+      <ion-img [src]="gameDetail.background_image" alt="{{ gameDetail.name }}"></ion-img>
+    </div>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <!-- Left Column -->
+      <ion-col size-md="8">
+        <ion-card class="ion-margin">
+          <ion-card-header>
+            <ion-card-subtitle>Description</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <div [innerHTML]="gameDetail.description || 'Not available'"></div>
+          </ion-card-content>
+        </ion-card>
+      
+
+        <ion-card class="ion-margin">
+          <ion-card-header>
+            <ion-card-subtitle>PC Requirements</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content [innerHTML]="getPCRequirements()"></ion-card-content>
+        </ion-card>
+      </ion-col>
+      <!-- Right Column -->
+      <ion-col size-md="4">
+        <ion-card class="ion-margin">
+          <ion-card-header>
+            <ion-card-subtitle>Play Time</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ gameDetail.playtime || 'Not available' }} hours</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="ion-margin">
+          <ion-card-header>
+            <ion-card-subtitle>Release Date</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ gameDetail.released || 'Not available' }}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="ion-margin">
+          <ion-card-header>
+            <ion-card-subtitle>Rating</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ gameDetail.rating || 'Not available' }}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="ion-margin">
+          <ion-card-header>
+            <ion-card-subtitle>Platforms</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ getFormattedPlatforms() }}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="ion-margin">
+          <ion-card-header>
+            <ion-card-subtitle>Genres</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ gameDetail.genres || 'Not available' }}</p>
+          </ion-card-content>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<style>
+  /* Add custom styles for the image container */
+  .custom-image {
+    max-width: 70%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 0 auto; /* Center the image horizontally */
+  }
+
+  /* Style to hide the original image inside the container */
+  .custom-image ion-img {
+    display: none;
+  }
+</style>

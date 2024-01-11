@@ -1,0 +1,38 @@
+<!-- home.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Game List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Use Ionic grid system to position the button and games list -->
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="ion-text-center">
+        <!-- "Open modal" button below the header -->
+        <ion-button (click)="openModal()">Choose a game</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <!-- Games Section -->
+        <ion-list>
+          <!-- Make each game item a navigation link to the detail page -->
+          <ion-item *ngFor="let game of gamesDataArray" [routerLink]="['/detail', game.id]">
+            <ion-thumbnail slot="start">
+              <img [src]="game.background_image" alt="{{ game.name }}">
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ game.name }}</h2>
+              <p>Rating: {{ game.rating }}</p>
+              <!-- Add more fields as needed, e.g., game.genre, game.release_date, etc. -->
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

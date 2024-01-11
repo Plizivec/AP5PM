@@ -1,0 +1,14 @@
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let game of games">
+      <ion-label>{{ game.name }}</ion-label>
+      <!-- Add more fields as needed, e.g., game.rating, game.genre, etc. -->
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="dismissModal()">Close</ion-button>
+  </ion-toolbar>
+</ion-footer>
