@@ -1,0 +1,25 @@
+ion-app {
+    // Add styles for the entire app, including splash screen
+  
+    .splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff; // Set your desired background color
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      // Customize the spinner and text styles as needed
+      ion-spinner {
+        color: #007bff; // Set your desired spinner color
+      }
+  
+      p {
+        margin-top: 10px;
+      }
+    }
+  }

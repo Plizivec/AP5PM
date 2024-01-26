@@ -7,6 +7,7 @@ import { GameListComponent } from 'src/app/home/game-list/game-list.component';
 import { PlacesService } from '../services/places/places.service';
 import { GameService } from 'src/app/services/games/games.service';
 import { Router } from '@angular/router';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +17,7 @@ import { Router } from '@angular/router';
 export class HomePage {
   gamesDataArray: any[] = [];
 
-  
-
-  constructor(public modalController: ModalController,private router: Router) {}
+  constructor(public modalController: ModalController,private router: Router,  private themeService: ThemeService) {}
 
   async openModal() {
     const modal = await this.modalController.create({
@@ -37,7 +36,17 @@ export class HomePage {
     }
   }
 
+  toggleTheme() {
+    this.themeService.toggleDarkMode();
+  }
+  
+  isDarkMode() {
+    return this.themeService.isDarkMode();
+  }
+
   navigateToDetails(gameId: string) {
     this.router.navigate(['/detail', gameId]);
   }
+
+  
 }

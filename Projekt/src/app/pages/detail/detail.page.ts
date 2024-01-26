@@ -1,6 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/games/games.service';
+import { ThemeService } from '../../theme.service';
 
 interface Platform {
   platform: {
@@ -27,7 +28,8 @@ export class DetailPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private gameService: GameService,
-    private router: Router
+    private router: Router,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit() {
@@ -102,6 +104,14 @@ export class DetailPage implements OnInit {
     }
   
     return 'Not available';
+  }
+
+  toggleTheme() {
+    this.themeService.toggleDarkMode();
+  }
+
+  isDarkMode() {
+    return this.themeService.isDarkMode();
   }
 
 }

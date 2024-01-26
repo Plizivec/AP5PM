@@ -5,15 +5,18 @@
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ gameDetail?.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleTheme()">
+        <div class="theme-toggle">
+          <div class="circle dark" [class.active]="isDarkMode()"></div>
+          <div class="circle light" [class.active]="!isDarkMode()"></div>
+        </div>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ gameDetail?.name }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <div class="ion-text-center ion-margin">
     <h1 class="ion-text-uppercase ion-margin-bottom">{{ gameDetail?.name }}</h1>
@@ -81,14 +84,7 @@
           </ion-card-content>
         </ion-card>
 
-        <ion-card class="ion-margin">
-          <ion-card-header>
-            <ion-card-subtitle>Genres</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <p>{{ gameDetail.genres || 'Not available' }}</p>
-          </ion-card-content>
-        </ion-card>
+        
         
       </ion-col>
     </ion-row>

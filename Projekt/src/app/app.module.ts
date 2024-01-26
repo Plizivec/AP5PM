@@ -12,11 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { GameService } from 'src/app/services/games/games.service';
 import { GameListComponent } from 'src/app/home/game-list/game-list.component';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from './theme.service';
 
 @NgModule({
   declarations: [AppComponent,GameListComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,FormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },GameService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },GameService,ThemeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

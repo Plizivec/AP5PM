@@ -1,11 +1,21 @@
 <!-- home.page.html -->
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Game List
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleTheme()">
+        <div class="theme-toggle">
+          <div class="circle dark" [class.active]="isDarkMode()"></div>
+          <div class="circle light" [class.active]="!isDarkMode()"></div>
+        </div>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <!-- Use Ionic grid system to position the button and games list -->
